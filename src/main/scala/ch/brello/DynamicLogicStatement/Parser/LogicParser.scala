@@ -17,7 +17,6 @@ object LogicParser extends Parsers {
     override def rest: Reader[LogicToken] = new LogicTokenReader(tokens.tail)
   }
 
-
   def apply(tokens: Seq[LogicToken]): Either[LogicParserError, LogicAST] = {
     val reader = new LogicTokenReader(tokens)
     logicStatement(reader) match {

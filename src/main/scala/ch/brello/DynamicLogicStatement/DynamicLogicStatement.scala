@@ -15,7 +15,7 @@ case class DynamicLogicStatement[A](
     }
   }")
 
-  //require(compiledStatementResult.right.get.)
+  require(LogicCompiler.validate(compiledStatementResult.right.get, dynamicFields.keySet))
 
   def evaluate(args: A): Boolean = {
     LogicCompiler.execute[A](compiledStatementResult.right.get, dynamicFields, args)
